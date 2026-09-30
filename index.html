@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Het Colosseum - Rome</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4ead8;
+            color: #3b291c;
+            line-height: 1.7;
+        }
+
+        header {
+            background:
+                linear-gradient(rgba(40, 25, 15, 0.65), rgba(40, 25, 15, 0.65)),
+                url("https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1800&q=80");
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero {
+            max-width: 850px;
+            padding: 30px;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 8px #000;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #c58b45;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #9c662d;
+            transform: scale(1.05);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #2e2118;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #e0ad68;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 25px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 35px;
+            color: #70451f;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+        }
+
+        .card h3 {
+            color: #9a622b;
+            margin-bottom: 12px;
+        }
+
+        .facts {
+            background: #2e2118;
+            color: white;
+            max-width: none;
+        }
+
+        .facts-content {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 25px;
+        }
+
+        .facts h2 {
+            color: #e8bd82;
+        }
+
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .fact {
+            background: #473326;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .fact strong {
+            display: block;
+            font-size: 32px;
+            color: #e8bd82;
+        }
+
+        .timeline {
+            border-left: 4px solid #a86f32;
+            padding-left: 30px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            width: 16px;
+            height: 16px;
+            background: #a86f32;
+            border-radius: 50%;
+            position: absolute;
+            left: -40px;
+            top: 8px;
+        }
+
+        .timeline-item h3 {
+            color: #8b5525;
+            font-size: 24px;
+        }
+
+        .visit {
+            background: #e2c9a4;
+            text-align: center;
+        }
+
+        .visit-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+
+        .visit-box p {
+            margin: 12px 0;
+        }
+
+        footer {
+            background: #211811;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer a {
+            color: #e8bd82;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 8px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="hero">
+        <h1>Het Colosseum</h1>
+        <p>Een reis door de geschiedenis van het oude Rome</p>
+        <a href="#geschiedenis" class="button">Ontdek de geschiedenis</a>
+    </div>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#geschiedenis">Geschiedenis</a>
+    <a href="#architectuur">Architectuur</a>
+    <a href="#feiten">Feiten</a>
+    <a href="#bezoek">Bezoeken</a>
+</nav>
+
+<main id="home">
+
+<section>
+    <h2>Welkom bij het Colosseum</h2>
+
+    <p class="intro">
+        Het Colosseum is een van de bekendste monumenten van Rome.
+        Het enorme amfitheater werd in de eerste eeuw na Christus
+        gebouwd tijdens de Flavische dynastie. Het gebouw werd gebruikt
+        voor grote openbare spektakels, waaronder gladiatorenspelen
+        en dierenjachten.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🏛️ Een enorm amfitheater</h3>
+            <p>
+                Het Colosseum was ontworpen voor grote aantallen
+                toeschouwers en had meerdere rijen zitplaatsen.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>⚔️ Gladiatorenspelen</h3>
+            <p>
+                In de arena vonden verschillende soorten openbare
+                spektakels plaats, waaronder gevechten tussen gladiatoren.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🐘 Dierenjachten</h3>
+            <p>
+                Ook werden er spektakels georganiseerd waarbij wilde
+                dieren werden gebruikt.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section id="geschiedenis">
+
+    <h2>De geschiedenis</h2>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <h3>72 n.Chr. — De bouw begint</h3>
+            <p>
+                Keizer Vespasianus gaf opdracht voor de bouw van het
+                enorme amfitheater.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>80 n.Chr. — Opening</h3>
+            <p>
+                Onder keizer Titus werd het gebouw voltooid en officieel
+                geopend met grote spelen.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>De Romeinse tijd</h3>
+            <p>
+                Het Colosseum werd gebruikt voor openbare spektakels,
+                zoals gladiatorengevechten en dierenjachten.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Middeleeuwen</h3>
+            <p>
+                Het gebruik van het Colosseum veranderde. Door
+                aardbevingen, verwaarlozing en het hergebruik van
+                bouwmateriaal raakte het gebouw beschadigd.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Vandaag</h3>
+            <p>
+                Het Colosseum is een belangrijk archeologisch monument
+                en een symbool van Rome.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="architectuur">
+
+    <h2>De architectuur</h2>
+
+    <p class="intro">
+        Het Colosseum is een indrukwekkend voorbeeld van Romeinse
+        architectuur. Het gebouw heeft meerdere verdiepingen met
+        bogen en gangen. Onder de arena bevonden zich ruimtes en
+        installaties die werden gebruikt om de spektakels te organiseren.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🏗️ Bogen</h3>
+            <p>
+                De buitenkant bestaat uit verschillende lagen met
+                rijen bogen.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>⬇️ Ondergrondse ruimtes</h3>
+            <p>
+                Onder de arena bevonden zich gangen, ruimtes en
+                technische voorzieningen.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>👥 Zitplaatsen</h3>
+            <p>
+                De zitplaatsen waren verdeeld volgens de sociale
+                positie van de bezoekers.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="facts" id="feiten">
+
+    <div class="facts-content">
+
+        <h2>Interessante feiten</h2>
+
+        <div class="fact-grid">
+
+            <div class="fact">
+                <strong>1e</strong>
+                eeuw
+                <br>
+                Het Colosseum werd in de eerste eeuw n.Chr. gebouwd.
+            </div>
+
+            <div class="fact">
+                <strong>80</strong>
+                n.Chr.
+                <br>
+                Het werd onder Titus geopend.
+            </div>
+
+            <div class="fact">
+                <strong>4</strong>
+                niveaus
+                <br>
+                De buitenkant had verschillende lagen.
+            </div>
+
+            <div class="fact">
+                <strong>Rome</strong>
+                Italië
+                <br>
+                Het Colosseum staat in het centrum van Rome.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="bezoek" class="visit">
+
+    <h2>Het Colosseum bezoeken</h2>
+
+    <div class="visit-box">
+
+        <p>
+            📍 <strong>Locatie:</strong> Piazza del Colosseo, Rome
+        </p>
+
+        <p>
+            🏛️ Het Colosseum maakt deel uit van het
+            Parco Archeologico del Colosseo.
+        </p>
+
+        <p>
+            Je kunt tijdens een bezoek ook het Forum Romanum
+            en de Palatijn ontdekken.
+        </p>
+
+        <br>
+
+        <a
+            class="button"
+            href="https://colosseo.it/en/"
+            target="_blank">
+            Officiële website
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    <p>🏛️ Website over het Colosseum</p>
+    <p>Gemaakt voor een schoolproject</p>
+</footer>
+
+</body>
+</html>
